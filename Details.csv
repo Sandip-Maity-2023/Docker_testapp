@@ -19,3 +19,76 @@ type nul > README.md
 type nul > server.js
 
 npm install express
+ npm install mongoose
+ npm install dotenv
+ 
+
+
+C:\Users\12san>docker run -d \ -p27017:27017 \ --name mongo \ --network mongo-network \ -e MONGO_INITDB_ROOT_USERNAME=admin \ -e MONGO_INITDB_ROOT_PASSWORD=qwerty \ mongo
+
+What's next:
+    Debug this container error with Gordon → docker ai "help me fix this container error"
+docker: invalid reference format
+
+Run 'docker run --help' for more information
+
+C:\Users\12san>docker run -d -p 27017:27017 --name mongo --network mongo-network -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=qwerty mongo
+Unable to find image 'mongo:latest' locally
+latest: Pulling from library/mongo
+493b9a5c1406: Pull complete
+fd8b5fe13ef4: Pull complete
+3da35589eb89: Pull complete
+222ece0c969d: Pull complete
+ec74c5fb0de4: Pull complete
+63680cf47926: Pull complete
+a60ef8ec184e: Pull complete
+4ac023c0ba6f: Pull complete
+eee770967154: Download complete
+4b7f08216c45: Download complete
+Digest: sha256:bac22ea7710d774103dcad3ec8ac13cba1eb378f488e3ce8a6b3a1adf2ba9dcc
+Status: Downloaded newer image for mongo:latest
+198b3d8ff9d64eee5bfc908ce7a5c5b81ef9f154bebfea94372565bbc512b524
+
+C:\Users\12san>docker run -d -p8081:8081 --name mongo-express --network mongo-network -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin -e ME_CONFIG_MONGODB_ADMINPASSWORD=qwerty -e ME_CONFIG_MONGODB_URL="mongodb://admin:qwerty@mongo:27017" mongo-express
+Unable to find image 'mongo-express:latest' locally
+latest: Pulling from library/mongo-express
+0bf3571b6cd7: Pull complete
+5189255e31c8: Pull complete
+619be1103602: Pull complete
+45b24ec126f9: Pull complete
+d8305ae32c95: Pull complete
+7e9a007eb24b: Pull complete
+88f4f8a6bc8d: Pull complete
+9f7f59574f7d: Pull complete
+337574bd0f5e: Download complete
+99ef4db52d2b: Download complete
+Digest: sha256:1b23d7976f0210dbec74045c209e52fbb26d29b2e873d6c6fa3d3f0ae32c2a64
+Status: Downloaded newer image for mongo-express:latest
+d661a725c70b4f774833da40ff779e0d901261f145744949e59db5bb22918330
+
+C:\Users\12san>docker network ls
+NETWORK ID     NAME              DRIVER    SCOPE
+b88acf9be9e9   bridge            bridge    local
+383df01a0ded   host              host      local
+2badd42ee631   mongo-network     bridge    local
+288598f67a5a   none              null      local
+190e1d9aba30   test-network      bridge    local
+e21343782837   testapp_default   bridge    local
+
+C:\Users\12san>docker ps
+CONTAINER ID   IMAGE           COMMAND                  CREATED              STATUS              PORTS                                             NAMES
+d661a725c70b   mongo-express   "/sbin/tini -- /dock…"   About a minute ago   Up About a minute   0.0.0.0:8081->8081/tcp, [::]:8081->8081/tcp       mongo-express
+198b3d8ff9d6   mongo           "docker-entrypoint.s…"   25 minutes ago       Up 25 minutes       0.0.0.0:27017->27017/tcp, [::]:27017->27017/tcp   mongo
+
+C:\Users\12san>docker
+
+
+
+Microsoft Windows [Version 10.0.26200.9457]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\12san>docker
+C:\Users\12san>docker ls
+docker: unknown command: docker ls
+
+

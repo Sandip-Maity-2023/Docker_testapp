@@ -2,6 +2,7 @@ const express=require('express');
 const app=express();
 const path=require("path");
 const MongoClient=require("mongodb").MongoClient;
+require('dotenv').config();
 
 const PORT=process.env.PORT;
 app.use(express.urlencoded({extended:true}));
