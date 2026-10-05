@@ -105,3 +105,22 @@ C:\Users\12san>docker ls
 docker: unknown command: docker ls
 
 
+
+
+PS E:\Docker_testapp> docker compose -f mongodb.yaml up -d
+time="2026-10-06T01:27:46+05:30" level=warning msg="E:\\Docker_testapp\\mongodb.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+[+] up 25/25
+ ✔ Image mongo-express                      Pulled                    151.6s
+ ✔ Image mongo                              Pulled                    313.8s
+ ✔ Network docker_testapp_default           Created                     0.2s
+ ✔ Container docker_testapp-mongo-express-1 Started                     1.8s
+ ✔ Container docker_testapp-mongo-1         Started                     1.8s
+PS E:\Docker_testapp>
+
+PS E:\Docker_testapp> docker compose -f mongodb.yaml down
+time="2026-10-06T01:42:24+05:30" level=warning msg="E:\\Docker_testapp\\mongodb.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+[+] down 3/3
+ ✔ Container docker_testapp-mongo-express-1 Removed                     0.8s
+ ✔ Container docker_testapp-mongo-1         Removed                     0.9s
+ ✔ Network docker_testapp_default           Removed                     0.4s
+PS E:\Docker_testapp>
