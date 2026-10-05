@@ -1,0 +1,21 @@
+PS E:\Docker_testapp> git status
+On branch main
+
+  requireStack: []
+}
+
+Node.js v22.18.0
+PS E:\Docker_testapp> node --version
+v22.18.0
+PS E:\Docker_testapp> npm --version
+
+10.9.3
+PS E:\Docker_testapp> npm init -y
+
+mkdir public
+type nul > public\index.html
+type nul > public\style.css
+type nul > README.md
+type nul > server.js
+
+npm install express
