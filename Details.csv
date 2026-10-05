@@ -24,6 +24,19 @@ npm install express
  
 
 
+Yes — the problem is in your environment syntax.
+You currently have:
+MONGO_INITDB_ROOT_USERNAME:admin
+MONGO_INITDB_ROOT_PASSWORD:qwerty
+
+YAML requires a space after :.
+Also, for Mongo Express, I recommend adding authSource=admin to the MongoDB URL.
+
+  MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: qwerty
+
+      
+
 C:\Users\12san>docker run -d \ -p27017:27017 \ --name mongo \ --network mongo-network \ -e MONGO_INITDB_ROOT_USERNAME=admin \ -e MONGO_INITDB_ROOT_PASSWORD=qwerty \ mongo
 
 What's next:
