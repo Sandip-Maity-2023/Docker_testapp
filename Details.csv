@@ -129,7 +129,9 @@ PS E:\Docker_testapp>
 
 PS E:\Docker_testapp> docker build -t docker_testapp:1.0 .
 
-docker 
+PS E:\Docker_testapp> node -v
+v22.18.0
+
 
 
 
