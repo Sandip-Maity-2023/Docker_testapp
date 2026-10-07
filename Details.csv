@@ -1,3 +1,31 @@
+docker repo
+https://hub.docker.com/repository/docker/sandipmaity2023/docker_testapp/tags
+
+Then start your app
+docker run --name testapp --network mynetwork --env-file .env -p 5050:5050 docker_testapp:1.0
+
+docker run --name testapp --network mynetwork --env-file .env -p 5050:5050 docker_testapp:1.0
+
+Rebuild the image
+docker build -t docker_testapp:1.0 .
+
+
+
+
+                 Docker: mynetwork
+        ┌─────────────────────────────┐
+        │                             │
+Browser │    Node/Express             │
+  ──────┼──→ testapp:5050             │
+        │          │                  │
+        │          │ mongo:27017      │
+        │          ↓                  │
+        │      MongoDB                │
+        │      mongo                  │
+        │                             │
+        └─────────────────────────────┘
+
+        
 PS E:\Docker_testapp> git status
 On branch main
 
