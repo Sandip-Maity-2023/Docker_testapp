@@ -1,46 +1,97 @@
-const express=require('express');
-const app=express();
-const path=require("path");
-const MongoClient=require("mongodb").MongoClient;
-require('dotenv').config(); //require dotenv to read .env file
+// const express=require('express');
+// const app=express();
+// const path=require("path");
+// const MongoClient=require("mongodb").MongoClient;
+// require('dotenv').config(); //require dotenv to read .env file
 
-const PORT=process.env.PORT;
-app.use(express.urlencoded({extended:true}));
-app.use(express.static("public"));
+// const PORT=process.env.PORT;
+// app.use(express.urlencoded({extended:true}));
+// app.use(express.static("public"));
 
-const MONGO_URL=process.env.MONGO_URL;
+// const MONGO_URL=process.env.MONGO_URL;
+// const client = new MongoClient(MONGO_URL);
+
+// //GET all users
+// app.get("/getUsers",async(req,res)=>{
+//     await client.connect(MONGO_URL);
+//     console.log('Connected successfully to server');
+
+//     const db=client.db("apnacollege-db");
+//     const data=await db.collection('users').find({}).toArray();
+
+//     client.close();
+//     res.send(data);
+// })
+
+// //POST new user
+// app.post("/addUser",async(req,res)=>{
+//     const userObj=req.body;
+//     console.log(req.body);
+
+//     await client.connect(MONGO_URL);
+//     console.log('Connected successfully to server');
+
+//     const db=client.db("apnacollege-db");
+//     const data=await db.collection('users').insertOne(userObj);
+
+//     console.log(data);
+//     console.log("data inserted in DB");
+//     client.close();
+// });
+
+// app.listen(PORT,()=>{
+//     console.log(`server running on port ${PORT}`);
+// });
+
+
+
+
+
+const express = require('express');
+const app = express();
+const path = require('path');
+const MongoClient = require('mongodb').MongoClient;
+
+require('dotenv').config();
+
+const PORT = process.env.PORT;
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
+
+const MONGO_URL = process.env.MONGO_URL;
 const client = new MongoClient(MONGO_URL);
 
-//GET all users
-app.get("/getUsers",async(req,res)=>{
+// GET all users
+app.get('/getUsers', async (req, res) => {
     await client.connect(MONGO_URL);
     console.log('Connected successfully to server');
 
-    const db=client.db("apnacollege-db");
-    const data=await db.collection('users').find({}).toArray();
+    const db = client.db('apnacollege-db');
+    const data = await db.collection('users').find({}).toArray();
 
-    client.close();
+    await client.close();
     res.send(data);
-})
+});
 
-//POST new user
-app.post("/addUser",async(req,res)=>{
-    const userObj=req.body;
+// POST new user
+app.post('/addUser', async (req, res) => {
+    const userObj = req.body;
     console.log(req.body);
 
     await client.connect(MONGO_URL);
     console.log('Connected successfully to server');
 
-    const db=client.db("apnacollege-db");
-    const data=await db.collection('users').insertOne(userObj);
+    const db = client.db('apnacollege-db');
+    const data = await db.collection('users').insertOne(userObj);
 
     console.log(data);
-    console.log("data inserted in DB");
-    client.close();
+    console.log('data inserted in DB');
+
+    await client.close();
+    res.send('User added successfully');
 });
 
-app.listen(PORT,()=>{
+app.listen(PORT, () => {
     console.log(`server running on port ${PORT}`);
 });
-
-
