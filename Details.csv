@@ -124,3 +124,16 @@ time="2026-10-06T01:42:24+05:30" level=warning msg="E:\\Docker_testapp\\mongodb.
  ✔ Container docker_testapp-mongo-1         Removed                     0.9s
  ✔ Network docker_testapp_default           Removed                     0.4s
 PS E:\Docker_testapp>
+
+
+
+PS E:\Docker_testapp> docker build -t docker_testapp:1.0 .
+
+docker 
+
+
+
+
+
+
+

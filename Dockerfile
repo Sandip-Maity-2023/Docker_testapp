@@ -1,20 +1,25 @@
+# FROM node
+
+# ENV MONGO_DB_USERNAME=admin \
+#     MONGO_DB_PWD=qwerty
+
+
+# RUN mkdir -p Docker_testapp
+
+# COPY . /Docker_testapp
+
+# CMD ["node", "/Docker_testapp/server.js"]
+
+
+
 FROM node
 
 ENV MONGO_DB_USERNAME=admin \
     MONGO_DB_PWD=qwerty
 
+WORKDIR /Docker_testapp
 
-RUN mkdir -p Docker_testapp
+COPY . .
 
-COPY . /Docker_testapp
-
-CMD ["node", "/Docker_testapp/server.js"]
-
- 
-
-
-
-
-
-
+CMD ["node", "server.js"]
 
