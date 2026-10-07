@@ -134,6 +134,186 @@ v22.18.0
 
 
 
+PS E:\Docker_testapp> node server.js
+◇ injected env (2) from .env
+server running on port 5050
+PS E:\Docker_testapp> git add .                     
+PS E:\Docker_testapp> git commit -m ".."            
+[main c471cb9] ..                       
+ 2 files changed, 15 insertions(+), 2 deletions(-)
+PS E:\Docker_testapp> git push origin main          
+
+PS E:\Docker_testapp> docker ps
+CONTAINER ID   IMAGE           COMMAND                  CREATED          STATUS          PORTS                                             NAMES
+0582867d721e   mongo-express   "/sbin/tini -- /dock…"   44 seconds ago   Up 43 seconds   0.0.0.0:8081->8081/tcp, [::]:8081->8081/tcp       docker_testapp-mongo-express-1
+3ed3755c5828   mongo           "docker-entrypoint.s…"   44 seconds ago   Up 43 seconds   0.0.0.0:27017->27017/tcp, [::]:27017->27017/tcp   docker_testapp-mongo-1
+PS E:\Docker_testapp> node server.js      
+◇ injected env (2) from .env
+server running on port 5050
+{
+  email: 'sandip125@gmail.com',
+  username: 'Sandip-Maity-2023',
+  password: '12345'
+}
+Connected successfully to server
+{
+  acknowledged: true,
+  insertedId: new ObjectId('6ac403617d95c817650354c7')
+}
+data inserted in DB
+Connected successfully to server
+PS E:\Docker_testapp> node server.js
+◇ injected env (2) from .env
+server running on port 5050
+PS E:\Docker_testapp> git add .           
+PS E:\Docker_testapp> git commit -m "Apna College: 
+>
+PS E:\Docker_testapp> git push origin main         
+
+PS E:\Docker_testapp> git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+PS E:\Docker_testapp> node server.js                
+◇ injected env (2) from .env                        
+server running on port 5050
+
+
+PS E:\Docker_testapp> docker images
+                                i Info →   U  In Use
+IMAGE                  ID             DISK USAGE
+mongo-express:latest   1b23d7976f02        287MB
+mongo:latest           bac22ea7710d       1.47GB
+testapp-app:latest     93cc1820e3b0        1.6GB
+ubuntu:latest          c4a8d5503dfb        119MB
+
+PS E:\Docker_testapp> docker build -t docker_testapp:1.0 .
+
+
+PS E:\Docker_testapp> docker images
+                                i Info →   U  In Use
+IMAGE                  ID             DISK USAGE
+mongo-express:latest   1b23d7976f02        287MB
+mongo:latest           bac22ea7710d       1.47GB
+testapp-app:latest     93cc1820e3b0        1.6GB
+ubuntu:latest          c4a8d5503dfb        119MB
+
+PS E:\Docker_testapp> docker build -t docker_testapp:1.0 .
+PS E:\Docker_testapp> docker build -t docker_testapp:1.0 .
+
+[+] Building 356.8s (5/8)     docker:desktop-linuxx
+ => [auth] library/node:pull token for regis  0.0ss
+
+PS E:\Docker_testapp> docker build -t docker_testapp:1.0 .        
+[+] Building 378.7s (8/9)      docker:desktop-linux
+ => [internal] load build definition from Doc  0.0s
+ => => transferring dockerfile: 369B           0.0s
+
+PS E:\Docker_testapp> docker images
+                                i Info →   U  In Use
+IMAGE                  ID             DISK USAGE
+mongo-express:latest   1b23d7976f02        287MB
+mongo:latest           bac22ea7710d       1.47GB
+testapp-app:latest     93cc1820e3b0        1.6GB
+ubuntu:latest          c4a8d5503dfb        119MB
+PS E:\Docker_testapp> docker pull node:22
+22: Pulling from library/node
+4e8e38f4cbab: Pull complete 
+
+PS E:\Docker_testapp> docker images      
+                                i Info →   U  In Use
+IMAGE                  ID             DISK USAGE
+mongo-express:latest   1b23d7976f02        287MB
+mongo:latest           bac22ea7710d       1.47GB
+node:22                0e5f90657369       1.65GB
+testapp-app:latest     93cc1820e3b0        1.6GB
+ubuntu:latest          c4a8d5503dfb        119MB
+PS E:\Docker_testapp> node -v
+v22.18.0
+PS E:\Docker_testapp> docker build -t docker_testapp:1.0 .
+[+] Building 1.2s (8/8) FINISHED docker:desktop-linu
+ => [internal] load build definition from Doc  0.0s
+
+PS E:\Docker_testapp> docker images                 
+                                i Info →   U  In Use
+IMAGE                  ID             DISK USAGE
+docker_testapp:1.0     6c16ef60ca60       1.64GB
+mongo-express:latest   1b23d7976f02        287MB
+mongo:latest           bac22ea7710d       1.47GB
+node:22                0e5f90657369       1.65GB
+testapp-app:latest     93cc1820e3b0        1.6GB
+ubuntu:latest          c4a8d5503dfb        119MB
+PS E:\Docker_testapp> docker run -p 5050:5050 docker_testapp:1.0
+node:internal/modules/cjs/loader:1433
+  throw err;
+  ^
+
+PS E:\Docker_testapp> type .env
+PORT=5050
+MONGO_URL="mongodb://admin:qwerty@localhost:27017"
+
+
+
+PS E:\Docker_testapp> type server.js
+const express=require('express');
+
+PS E:\Docker_testapp> docker network create mynetwork
+9e0148b71c908d30f3d7a7dfee77e574a53feb245443965671104d1479a35d1d
+PS E:\Docker_testapp> docker network ls             
+NETWORK ID     NAME              DRIVER    SCOPE
+5bc43bb3c539   bridge            bridge    local
+383df01a0ded   host              host      local
+2badd42ee631   mongo-network     bridge    local
+9e0148b71c90   mynetwork         bridge    local
+288598f67a5a   none              null      local
+190e1d9aba30   test-network      bridge    local
+e21343782837   testapp_default   bridge    local
+
+
+PS E:\Docker_testapp> docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS   PORTS     NAMES
+
+PS E:\Docker_testapp> docker ps -a
+CONTAINER ID   IMAGE                COMMAND         CREATED              STATUS      PORTS     NAMES
+bf364c931445   docker_testapp:1.0   "docker-entrypoint.s…"   About a minute ago   Created                affectionate_wright
+0130157c39f1   fa8b8b899c73         "docker-entrypoint.s…"   3 minutes ago        Created                youthful_turing
+fc9a41b90711   51d8bbeb919b         "docker-entrypoint.s…"   10 minutes ago       Exited (1) 10 minutesago             romantic_hellman
+ad61ed6329c2   51d8bbeb919b         "docker-entrypoint.s…"   11 minutes ago       Exited (1) 11 minutesago             suspicious_lalande
+099a007f60bb   51d8bbeb919b         "docker-entrypoint.s…"   11 minutes ago       Exited (1) 11 minutesago             nifty_fermi
+ba8f55e63ff6   6c16ef60ca60         "docker-entrypoint.s…"   14 minutes ago       Exited (1) 14 minutesago             hopeful_jang
+PS E:\Docker_testapp> docker container prune
+WARNING! This will remove all stopped containers.
+Are you sure you want to continue? [y/N] y
+Deleted Containers:
+bf364c931445ab0bc9be6fd445da657d74e3cb66763d1fca5286d5b47bb35212
+0130157c39f1addc23474b854946c24963b61c7df5ebe3a0d2e5d4cb50801a35
+fc9a41b907112b6f5fde20d134597a8db039b532298983d7423037ded1407075
+ad61ed6329c2d035f58dd6c20c8b3ba0a937c6053d6be3853f60e5ddabd734c4
+099a007f60bba0371bcb1d676a8d920cf1119b597ef868f0a7a98521c56aaf61
+ba8f55e63ff61fbd6d01217cf132401d6acb3940e7e0bb767dcaa7bd4f874167
+
+Total reclaimed space: 24.58kB
+PS E:\Docker_testapp> docker run -d --name mongo --network mynetwork -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=qwerty mongo:latest
+8f273d02cdac1ef557dad5471427f118a2bf290f80a8651f3d90cd5c7aed4cd9
+
+
+PS E:\Docker_testapp> docker ps
+CONTAINER ID   IMAGE          COMMAND   CREATED         STATUS         PORTS                                NAMES
+8f273d02cdac   mongo:latest   "docker-entrypoint.s…"   7 seconds ago   Up 7 seconds   0.0.0.0:27017->27017/tcp, [::]:27017->27017/tcp   mongo
+PS E:\Docker_testapp> docker build -t docker_testapp:1.0 .
+PS E:\Docker_testapp> docker run --name testapp --network mynetwork --env-file .env -p 5050:5050 docker_testapp:1.0
+
+
+◇ injected env (0) from .env
+server running on port 5050
+{
+  email: '12sandip125@gmail.com',
+  username: 'Sandip-Maity-2023',
+  password: '12345'
+}
+MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017
+
 
 
 
