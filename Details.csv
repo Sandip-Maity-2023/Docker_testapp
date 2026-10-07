@@ -317,5 +317,38 @@ MongoServerSelectionError: connect ECONNREFUSED 127.0.0.1:27017
 
 
 
+PS E:\Docker_testapp> docker run --rm --env-file .env node:22 node -e "console.log(process.env.PORT); console.log(process.env.MONGO_URL)"
+5050
+mongodb://admin:qwerty@mongo:27017/?authSource=admin
+PS E:\Docker_testapp> docker run --name testapp --network mynetwork --env-file .env -p 5050:5050 docker_testapp:1.0
+
+What's next:
+    Debug this container error with Gordon →docker ai "help me fix this container error"
+docker: Error response from daemon: Conflict. The container name "/testapp" is already inuse by container "4ae573ee0487e8b5a0bc045c321ce220d77602778c69eac60181e264e43570db". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+PS E:\Docker_testapp> docker rm -f testapp
+testapp
+PS E:\Docker_testapp> docker ps -a
+CONTAINER ID   IMAGE                COMMAND                CREATED          STATUS    PORTS         NAMES
+5f2ba4fc4d59   docker_testapp:1.0   "docker-entrypoint.s…"   3 minutes ago    Created         tender_kowalevski
+8f273d02cdac   mongo:latest         "docker-entrypoint.s…"   42 minutes ago   Up 42 minutes   0.0.0.0:27017->27017/tcp, [::]:27017->27017/tcp   mongo
+PS E:\Docker_testapp> docker run --name testapp --network mynetwork --env-file .env -p 5050:5050 docker_testapp:1.0
+◇ injected env (0) from .env
+server running on port 5050
+{
+  email: '12sandip125@gmail.com',
+  username: 'Sandip-Maity-2023',
+  password: '12345'
+}
+Connected successfully to server
+{
+  acknowledged: true,
+  insertedId: new ObjectId('6ac687937919c73780d797ae')
+}
+data inserted in DB
+
+
+
 
 
