@@ -13,7 +13,7 @@ const client = new MongoClient(MONGO_URL);
 
 //GET all users
 app.get("/getUsers",async(req,res)=>{
-    await client.connect(URL);
+    await client.connect(MONGO_URL);
     console.log('Connected successfully to server');
 
     const db=client.db("apnacollege-db");
@@ -28,7 +28,7 @@ app.post("/addUser",async(req,res)=>{
     const userObj=req.body;
     console.log(req.body);
 
-    await client.connect(URL);
+    await client.connect(MONGO_URL);
     console.log('Connected successfully to server');
 
     const db=client.db("apnacollege-db");
